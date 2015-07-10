@@ -1,0 +1,17 @@
+<% flash.each do |level, message| %>
+  <div class="alert alert-<%= level %>"><%= message %></div>
+<% end %>
+
+
+<div class="post content">
+  <% @entries.each do |entry| %>
+    <div class="entry">
+      <p>
+        <%= link_to entry.title, entry.url, target: '_blank' %>
+      </p>
+      <p><%= entry.description %></p>
+    </div>
+  <% end %>
+
+  <%= will_paginate @entries %>
+</div>

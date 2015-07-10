@@ -1,0 +1,30 @@
+<% if @entry.errors.full_messages.any? %>
+  <ul>
+    <% @entry.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @entry do |f| %>
+
+  <div class="form-group">
+    <%= f.label :url, class: 'control-label' %>
+    <%= f.url_field :url %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title, class: 'control-label' %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, class: 'control-label' %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
